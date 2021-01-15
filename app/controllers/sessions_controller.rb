@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
     @user = User.new
   end
   def create
-    raise params.inspect
-    session[:user_id] = User.find(params[:id])
+    #raise params.inspect
+    session[:user_id] = User.find(params[:user][:name]).id
     redirect_to user_path(session[:user_id])
   end
   def destroy
