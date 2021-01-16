@@ -1,9 +1,17 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <h3>Name: </h3>
 <%= @user.name %><br>
+<% if @user.admin==false %>
 <h3>Tickets: </h3>
 <%= @user.tickets %><br>
 <h3>Mood: </h3>
 <%= @user.mood %><br>
 <h3>Height: </h3>
 <%= @user.height %><br>
-<%= link_to "See Attractions", attractions_path %>
+<% end %>
+<%= "ADMIN" if @user.admin==true %><br>
+<%= link_to "See attractions", attractions_path %>
